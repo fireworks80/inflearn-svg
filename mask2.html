@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <style>
+      svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #efefef;
+      }
+    </style>
+    <title>돋보기 - 마스크</title>
+  </head>
+  <body>
+    <svg>
+      <defs>
+          <style>
+              .bg {
+                fill: url(#bg-pattern);
+              }
+
+              @keyframes anim-left-eye {
+                from {
+                  transform: scaleY(1);
+                }
+
+                to {
+                  transform: scaleY(0.2);
+                }
+              }
+
+              .left-eye {
+                transform-origin: 43px 41px;
+                animation: anim-left-eye 0.6s alternate infinite;
+              }
+            </style>
+    
+            <script>
+              window.addEventListener('DOMContentLoaded', () => { 
+                const magnifier = document.querySelector('.magnifier');
+                const circle = document.querySelector('#mask-glass circle');
+                
+                window.addEventListener('mousemove', (e) => {
+                  <!-- console.log(e.layerX); -->
+                  magnifier.style.transform = `translate(${e.layerX}px, ${e.layerY}px)`;
+                  circle.style.transform = `translate(${e.layerX}px, ${e.layerY}px)`;
+                });
+              });
+            </script>
+            
+        <pattern id="bg-pattern" x="0" y="0" width="0.1" height="0.1">
+          <path
+            d="M138.61,133a29.89,29.89,0,1,1,21.14-8.75A29.72,29.72,0,0,1,138.61,133Zm0-55.38a25.49,25.49,0,1,0,18,7.46A25.32,25.32,0,0,0,138.61,77.63Z"
+            transform="translate(-107 -64)"
+          />
+          <g>
+            <circle cx="19.31" cy="41.98" r="4.69" />
+            <circle class="left-eye" cx="43.8" cy="41.98" r="4.69" />
+          </g>
+          <path
+            d="M138.61,124.88h-.05a21.76,21.76,0,0,1-16.19-7.24l2.47-2.21a18.44,18.44,0,0,0,13.72,6.14h.05a18.44,18.44,0,0,0,13.72-6.14l2.46,2.21A21.73,21.73,0,0,1,138.61,124.88Z"
+            transform="translate(-107 -64)"
+          />
+          <path
+            d="M154.28,72.27a17.56,17.56,0,0,0-3.94.44c-1.76-5-8.37-8.71-16.25-8.71-9.15,0-16.58,5-16.72,11.2C111.23,77.38,107,82,107,87.23c0,7.4,8.32,13.4,18.59,13.4,6.84,0,12.82-2.66,16-6.63a16.61,16.61,0,0,0,12.65,5.53C163,99.53,170,93.43,170,85.9S163,72.27,154.28,72.27Z"
+            transform="translate(-107 -64)"
+          />
+        </pattern>
+        <mask id="mask-glass">
+          <circle cx="57" cy="57" r="46" fill="#fff" />
+        </mask>
+      </defs>
+      <g stroke="#707070">
+        <path
+          class="magnifier"
+          d="M58.5 112.5v92zM7 58.5A51.5 51.5 0 1158.5 110 51.5 51.5 0 017 58.5z"
+          fill="#fff"
+          stroke-linejoin="round"
+          stroke-width="14"
+        />
+      </g>
+      <g mask="url(#mask-glass)">
+        <rect x="0" y="0" width="100%" height="100%" class="bg" />
+      </g>
+    </svg>
+  </body>
+</html>

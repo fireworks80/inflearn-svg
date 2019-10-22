@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    svg {
+      /* css로 svg의 크기를 500 * 500 으로 하면 브라우저상 viewBox의 크기는 500 x 500이된다. */
+      width: 500px;
+      height: 500px;
+      background: gray;
+    }
+  
+  </style>
+</head>
+<body>
+  <!-- 
+    화면에서의 viewBox크기는 500 x 500 이지만
+    svg에서는 viewBox가 1000 x 1000이므로 
+    rect의 크기는 (css에서의 viewBox 크기 / svg viewBox 크기 * rect의 크기) = 50이 된다.
+  -->
+  <svg viewBox="0 0 1000 1000">
+    <rect x="0" y="0" width="100" height="100"></rect>
+  </svg>
+</body>
+</html>

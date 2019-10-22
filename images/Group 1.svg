@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="117" height="211.5">
+  <g data-name="Group 1" stroke="#707070">
+  <path data-name="Union 1" d="M58.5 112.5v92zM7 58.5A51.5 51.5 0 1158.5 110 51.5 51.5 0 017 58.5z" fill="#fff" stroke-linejoin="round" stroke-width="14"/>
+    <g data-name="Ellipse 2" transform="translate(13 13)" fill="#959595">
+      <circle cx="46" cy="46" r="46" stroke="none"/>
+      <circle cx="46" cy="46" r="45.5" fill="none"/>
+    </g>
+  </g>
+</svg>

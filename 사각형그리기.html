@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    svg {
+      /* svg에 width / height를 설정하면 viewport가 고정값이 된다. */
+      /* width: 500px;
+      height: 500px; */
+      background: gray;
+    }
+  
+  </style>
+</head>
+<body>
+
+  <!-- 
+    viewBox는 svg 안에 보이는 view의 크기를 나타 낸다 (viewport)
+    viewBox="x축 y축 width height"
+    viewBox의 크기에 따라 내용물이 상대적으로 크기 값을 갖는다.
+   -->
+  <svg viewBox="0 0 500 500">
+    <rect x="0" y="0" width="100" height="100"></rect>
+  </svg>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      svg {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: #efefef;
+      }
+
+      svg text {
+        font-size: 5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <svg>
+      <defs>
+        <mask id="mask-circle">
+          <!-- 
+            마스크인 circle의 fill의 기본값은 black인데 
+            마스크는 검은색은 안보이고 흰색이면 보인다.
+            검은색으로 가까울수록 점점 연해지고
+            흰색에 가까울 수록 진해진다
+          -->
+          <circle cx="50" cy="80" r="40" fill="#999" />
+        </mask>
+      </defs>
+      <!-- 
+        마스크가 보일 부분을 <g>로 감싸준뒤 mask="url(dfs에서 id로 정의한 요소를 넣는다.)"
+      -->
+      <g mask="url(#mask-circle)">
+        <text x="10" y="100">
+          Hello SVG HEllo SVG Lorem ipsum dolor sit amet consectetur adipisicing
+          elit. Laudantium esse accusantium debitis cumque consequuntur
+          voluptatibus
+        </text>
+      </g>
+    </svg>
+  </body>
+</html>
