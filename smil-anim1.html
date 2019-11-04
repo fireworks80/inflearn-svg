@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <svg class="svg" viewBox="0 0 1000 1000">
+      <defs>
+        <script>
+          window.addEventListener('DOMContentLoaded', () => { 
+            const rectEl = document.querySelector('.rect'); 
+            const aniEl = rectEl.querySelector('animate'); 
+
+            rectEl.addEventListener('click', () => {
+              aniEl.beginElement();
+            });
+          });
+        </script>
+      </defs>
+      <rect class="rect" x="10" y="10" width="20%" height="20%">
+        <!-- 
+          attributeName: 어떤 속성을 애니메이션 할 건지
+          dur: duration
+          repeatCount: 반복 (무한 반복)
+          css 무한반복: infinite
+          svg 무한반복: indefinite
+
+          fill: freeze 마지막 위치에서 끝내기 (css: fill-mode: forwards)
+          begin: 언제 애니메이션이 실행 할지 (indefinite는 출발을 하지 않고 대기)
+          시간을 지정하면 지정시간 이후 애니메이션 실행
+         -->
+        <animate
+          attributeType="XML"
+          attributeName="x"
+          from=""
+          to="700"
+          dur="1s"
+          repeatCount="1"
+          fill="freeze"
+          begin="indefinite"
+        />
+      </rect>
+    </svg>
+  </body>
+</html>
