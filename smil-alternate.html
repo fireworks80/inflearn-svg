@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>smil altinate</title>
+  <style>
+    body {
+      margin: 0;
+    }
+    svg {
+      width: 500px;
+      height: 500px;
+      background: firebrick;
+    }
+    rect {
+      background-color: #000;
+    }
+  </style>
+</head>
+<body>
+  <!-- 
+    to: 어느지점 까지 가는지 
+    to 대신 values="시작지점; 원하는 지점; ...."
+    keyTimes="시작; ......; 끝;"(keyframes와 같음)
+    values의 갯수만큼 keyTimes도 늘어난다.
+  -->
+  <svg>
+    <rect x="10" y="10" width="20%" height="20%">
+    <animate
+      attributeName="x"
+      values="0; 400; 0"
+      keyTimes="0; 0.5; 1"
+      dur="2s"
+      repeatCount="indefinite"/>
+      </rect>
+  </svg>
+</body>
+</html>
