@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .react-mon {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 10vw;
+      height: 10vh;
+      margin: auto;
+    }
+    .cls-1{
+      fill:none;
+      stroke:#61dafb;
+      stroke-width:15px; 
+      opacity: 0.3;
+    }
+    .cls-eff {
+      opacity: 1;
+      stroke-dasharray: 713;
+      stroke-dashoffset: -713;
+      animation: anim-eff 1s infinite;
+    }
+
+    .cls-eff2 {
+      animation-delay: 0.2s;
+    }
+    .cls-eff3 {
+      animation-delay: 0.35s;
+    }
+
+    @keyframes anim-eye-black {
+      from {
+        transform: translateX(-20px);
+      }
+      to {
+        transform: translateX(20px);
+      }
+    }
+    .eye-black {
+      animation: anim-eye-black 1s infinite alternate linear;
+    }
+
+    @keyframes anim-eye {
+      80% {
+        transform: scaleY(1);
+      }
+
+      90% {
+        transform: scaleY(0.01);
+      }
+      100% {
+        transform: scaleY(0.01);
+      }
+    }
+
+    .eye {
+      animation: anim-eye 2s linear infinite alternate;
+      transform-origin: 50% 50%;
+    }
+
+    @keyframes anim-eff {
+      0% {
+        stroke-dashoffset: -713;
+      }
+
+      50% {
+        stroke-dashoffset: 0;
+      }
+
+      100% {
+        stroke-dashoffset: 713;
+      }
+    }
+
+  
+  </style>
+</head>
+<body>
+  <svg class="react-mon" viewBox="0 0 327 291.84">
+    <defs>
+        <mask id="eye-mask">
+          <ellipse class="eye" cx="163.5" cy="145.92" rx="28" ry="14" fill="#fff"/>
+        </mask>
+    </defs>
+
+    <g>
+        <ellipse class="cls-1" cx="163.5" cy="145.92" rx="156" ry="60"/>
+        <ellipse class="cls-1 cls-eff cls-eff1" cx="163.5" cy="145.92" rx="156" ry="60"/>
+    </g>
+    <g>
+      <ellipse class="cls-1" cx="384" cy="384" rx="156" ry="60" transform="matrix(.5 -.87 .87 .5 -361.05 286.47)"/>
+      <ellipse class="cls-1 cls-eff cls-eff2" cx="384" cy="384" rx="156" ry="60" transform="matrix(.5 -.87 .87 .5 -361.05 286.47)"/>
+    </g>
+    <g>
+      <ellipse class="cls-1" cx="384" cy="384" rx="60" ry="156" transform="rotate(-30 -170.504 676.413)"/>
+      <ellipse class="cls-1 cls-eff cls-eff3" cx="384" cy="384" rx="60" ry="156" transform="rotate(-30 -170.504 676.413)"/>
+    </g>
+    
+    <circle cx="163.5" cy="145.92" r="31" fill="#61dafb"/>
+    <ellipse class="eye" cx="163.5" cy="145.92" rx="28" ry="14" fill="#fff"/>
+    <g mask="url(#eye-mask)">
+      <circle class="eye-black" cx="163.5" cy="145.92" r="13" fill="#333"/>
+    </g>
+  </svg>
+  
+</body>
+</html>
