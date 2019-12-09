@@ -80,6 +80,37 @@
       }
     }
 
+    @keyframes effect1 {
+      100% {
+        transform: rotate3D(0, 1, 0, 360deg);
+      }
+    }
+    @keyframes effect2 {
+      100% {
+        transform: rotate3D(2, 1.22, 0, 360deg);
+      }
+    }
+    @keyframes effect3 {
+      100% {
+        transform: rotate3D(-2, 1.22, 0, 360deg);
+      }
+    }
+
+    
+    .els {
+      transform-origin: 50% 50%;
+    }
+    
+    .els-1 {
+      animation: effect1 5s linear infinite;
+    }
+    .els-2 {
+      animation: effect1 5s linear infinite;
+    }
+    .els-3 {
+      animation: effect1 5s linear infinite;
+    }
+
   
   </style>
 </head>
@@ -91,15 +122,15 @@
         </mask>
     </defs>
 
-    <g>
+    <g class="els els-1">
         <ellipse class="cls-1" cx="163.5" cy="145.92" rx="156" ry="60"/>
         <ellipse class="cls-1 cls-eff cls-eff1" cx="163.5" cy="145.92" rx="156" ry="60"/>
     </g>
-    <g>
+    <g class="els els-2">
       <ellipse class="cls-1" cx="384" cy="384" rx="156" ry="60" transform="matrix(.5 -.87 .87 .5 -361.05 286.47)"/>
       <ellipse class="cls-1 cls-eff cls-eff2" cx="384" cy="384" rx="156" ry="60" transform="matrix(.5 -.87 .87 .5 -361.05 286.47)"/>
     </g>
-    <g>
+    <g class="els els-3">
       <ellipse class="cls-1" cx="384" cy="384" rx="60" ry="156" transform="rotate(-30 -170.504 676.413)"/>
       <ellipse class="cls-1 cls-eff cls-eff3" cx="384" cy="384" rx="60" ry="156" transform="rotate(-30 -170.504 676.413)"/>
     </g>
@@ -110,6 +141,34 @@
       <circle class="eye-black" cx="163.5" cy="145.92" r="13" fill="#333"/>
     </g>
   </svg>
+  <script>
+  (() => {
+    const reactMon = document.querySelector('.react-mon');
+    const easing = 0.05;
+    const mouseInfo = {x: 0, y: 0};
+    const reactMonInfo = {x: 0, y: 0};
+
+    const setMouseInfo = (e) => {
+      mouseInfo.x = e.clientX - window.innerWidth * 0.5;
+      mouseInfo.y = e.clientY - window.innerHeight * 0.5;
+    };
+    
+    const render = () => {
+      let dx = mouseInfo.x - reactMonInfo.x;
+      let dy = mouseInfo.y - reactMonInfo.y;
+      
+      reactMonInfo.x = reactMonInfo.x + dx * easing;
+      reactMonInfo.y = reactMonInfo.y + dy * easing;
+
+      reactMon.style.transform = `translate3d(${reactMonInfo.x}px, ${reactMonInfo.y}px, 0)`;
+      requestAnimationFrame(render);
+    };
+
+    window.addEventListener('mousemove', setMouseInfo);
+
+    render();
+  })();
   
+  </script>
 </body>
 </html>
